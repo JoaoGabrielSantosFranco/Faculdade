@@ -1,0 +1,24 @@
+package adapter;
+
+public class Adapter implements ClienteInterface{
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
+    }
+
+    private Service service;
+
+    @Override
+    public void method(String xml) {
+        // TODO Auto-generated method stub
+        String json = xml;
+        service.ServiceMethod(json);
+        
+    }
+    
+
+}
