@@ -12,8 +12,8 @@ public class Main {
             System.out.println("| 1} Criar Contato     |");
             System.out.println("| 2} Exibir            |");
             System.out.println("| 3} Editar            |");
-            System.out.println("| 4} Desfaser edição   |");
-            System.out.println("| 5} excluir           |");
+            System.out.println("| 4} Desfazer edição   |");
+            System.out.println("| 5} Excluir           |");
             System.out.println("| 6} Sair              |");
             System.out.println("|______________________|");
             int opcao = leitor.nextInt();
@@ -50,14 +50,3 @@ public class Main {
         }
     }
 
-    
-  
-
-
-
-
-
-
-
-      
-    
