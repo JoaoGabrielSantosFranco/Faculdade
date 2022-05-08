@@ -21,8 +21,6 @@ public class Contato implements Cloneable{
     }
     
 
-
-
     /* 
         Metodo para que um contato seja criado e adicionado a lista
     */ 
@@ -68,18 +66,15 @@ public class Contato implements Cloneable{
         System.out.println("informe o Email ");
         String email = (scanner.next());
 
-
-        
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-
+        Contato contato = new Contato(id,nome,telefone,email);
+      
+        lista.set(id, contato);     
+    
     }
 
     public void excluir() throws PilhaCheiaException{
         System.out.println("informe o ID do contato");
         int id = (scanner.nextInt());
-
         lista.remove(id);
 }
 
@@ -127,5 +122,4 @@ public class Contato implements Cloneable{
     
     
 }
-
  
