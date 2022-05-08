@@ -29,12 +29,17 @@ public class Contato implements Cloneable{
             String nome = (scanner.next());
 
             System.out.println("informe o Telefone");
-            String Telefone = (scanner.next());
+            String telefone = (scanner.next());
 
             System.out.println("informe o Email ");
-            String Email = (scanner.next());
+            String email = (scanner.next());
 
-            Contato contato = new Contato(i ,nome,Telefone,Email);
+            setId(i);
+            setNome(nome);
+            setTelefone(telefone);
+            setEmail(email);
+
+            Contato contato = new Contato(i ,nome,telefone,email);
             i++;
             lista.add(contato);
     }
@@ -49,7 +54,7 @@ public class Contato implements Cloneable{
     }
 
     public Contato clone(){
-        return new Contato(this.id, this.nome, this.telefone, this.email);
+        return new Contato(this.i-1, this.nome, this.telefone, this.email);
     }
 
 
@@ -65,27 +70,33 @@ public class Contato implements Cloneable{
 
         System.out.println("informe o Email ");
         String email = (scanner.next());
-
-        Contato contato = new Contato(id,nome,telefone,email);
+ 
+        setId(i);
+        setNome(nome);
+        setTelefone(telefone);
+        setEmail(email);
+        
+        Contato contato = new Contato(i-1,nome,telefone,email);
       
-        lista.set(id, contato);     
-    
+        lista.set(i-1, contato);
+
+
     }
 
     public void excluir() throws PilhaCheiaException{
         System.out.println("informe o ID do contato");
         int id = (scanner.nextInt());
         lista.remove(id);
+        i--;
 }
 
 
     /* metodo para desfazer a ultima edição */
     public void desfazer() throws PilhaVaziaException{
         Contato antigo = historico.pop();
-        this.setNome(antigo.getNome());
-        this.setTelefone(antigo.getTelefone());
-        this.setEmail(antigo.getEmail());
-
+        
+        Contato contato = new Contato(i-1,antigo.getNome(),antigo.getTelefone(),antigo.getEmail());
+        lista.set(i-1, contato);
     }
 
     @Override
@@ -122,4 +133,6 @@ public class Contato implements Cloneable{
     
     
 }
+
+ 
  
